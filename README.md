@@ -27,5 +27,7 @@ Java
 6) Congratulations your ran your first program.
 
 ### Sources:
-For a more in-depth tutorial go to this online tutorial written by ***Nam Ha Minh***:
+- For a more in-depth tutorial go to this online tutorial written by ***Nam Ha Minh***:
 https://www.codejava.net/java-core/how-to-write-compile-and-run-a-hello-world-java-program-for-beginners
+- For documentations or help troubleshooting:
+https://docs.oracle.com/en/java/javase/14/index.html
