@@ -23,7 +23,7 @@ Java
 2) Change current directory to the directory containing Java. `cd C:\Program Files\Java`.
 3) Enter the following: `javac [name of program].java`.
 4) It will have generated a `.class` file. To verify enter  `dir` in the command line.
-5) To run the program enter the following: Java [name of program]. (If you created a program such as 'test.java,' then simply write 'test').
+5) To run the program enter the following: java [name of program]. (If you created a program such as 'test.java,' then simply write 'java test').
 6) Congratulations your ran your first program.
 
 ### Sources:
