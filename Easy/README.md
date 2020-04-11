@@ -13,5 +13,6 @@ public class Main {
 }</code></pre>
 
 ### Keywords:
-- ***Static***: A member of a class that isn't associated with an instance of a class.
+- ***static***: A member of a class that isn't associated with an instance of a class. Therefore it holds the same value(s) across multiple class instances.
+
 - ***void***: A function of type `void` does not expect a return value.
