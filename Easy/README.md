@@ -12,6 +12,9 @@ public class Main {
   }
 }</code></pre>
 
+2) You can only have one Top-level public classes followed by class instances within a file. 
+3) You can also create multiple .java files, each with their own public class, and compile them together within the same directory.
+
 ### Keywords:
 - ***static***: A member of a class that isn't associated with an instance of a class. Therefore it holds the same value(s) across multiple class instances.
 
