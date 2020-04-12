@@ -1,4 +1,4 @@
 Preview
 =======
 # Text Editor
-![image](TextEditor/TextEditor.png)
+![alt image](Java-Projects/TextEditor/TextEditor.png)
