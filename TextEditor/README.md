@@ -1,4 +1,4 @@
 Preview
 =======
-# Text Editor
+## Text Editor
 ![alt image](/TextEditor/TextEditor.PNG)
