@@ -1,4 +1,5 @@
 Preview
 =======
 ## Text Editor
-![alt image](/TextEditor/TextEditor.PNG)
+![alt image](/TextEditor/PTE.PNG)
+![alt image](/TextEditor/EditText.PNG)
