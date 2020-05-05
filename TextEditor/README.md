@@ -1,7 +1,8 @@
 Preview
 =======
 ## Text Editor
-Main Window:
+### Main Window:
 ![alt image](/TextEditor/PTE.PNG)
-Editing Window:
+
+### Editing Window:
 ![alt image](/TextEditor/EditText.PNG)
