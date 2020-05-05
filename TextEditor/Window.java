@@ -1,23 +1,116 @@
-import javax.swing.JFrame;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JTextField;
+import javax.swing.*;
+import javax.swing.border.*;
 
-import java.awt.Dimension;
-import java.awt.Desktop;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.*;
+import java.awt.event.*;
+
 import java.io.File;
 import java.io.IOException;
 
 public class Window {
 
+  public void AddConstraints(GridBagConstraints gbc, int widthVal, double weightxVal,
+                        double weightyVal, int xVal, int yVal) {
+    gbc.gridwidth = widthVal;
+    gbc.weightx = weightxVal;
+    gbc.weighty = weightyVal;
+    gbc.gridx = xVal;
+    gbc.gridy = yVal;
+  }
+
+  public JPanel MakePanels() {
+    JPanel panels = new JPanel(new CardLayout());
+    JPanel mainPanel = new JPanel(new GridBagLayout());
+    JPanel editPanel = new JPanel(new GridBagLayout());
+
+    JLabel intro1 = new JLabel("Welcome to Personal Text Editor V1.0!");
+    JLabel intro2 = new JLabel("Click 'OK' to begin.");
+
+    JButton okButton = new JButton("OK");
+    JButton backButton = new JButton("<< Back");
+    JButton nextButton = new JButton("Next >>");
+
+    JTextArea txtFld = new JTextArea();
+    txtFld.setPreferredSize(new Dimension(706,420));
+    txtFld.setLineWrap(true);
+    Font txtFont = new Font("SansSerif", Font.PLAIN, 15);
+    txtFld.setFont(txtFont);
+
+    txtFld.addFocusListener(new FocusAdapter() {
+      public void focusGained(FocusEvent e) {
+        txtFld.setEditable(false);
+      }
+
+      public void focusLost(FocusEvent e) {
+        txtFld.setEditable(true);
+      }
+    });
+
+    editPanel.add(txtFld);
+
+    GridBagConstraints gbc = new GridBagConstraints();
+
+    gbc.fill = GridBagConstraints.NONE;
+    gbc.anchor = GridBagConstraints.NORTH;
+    gbc.insets = new Insets(150,0,0,0);  // (Top, Left, Bottom, Right)
+    AddConstraints(gbc,0,0,0.5,0,0);
+    mainPanel.add(intro1, gbc);
+
+    gbc.fill = GridBagConstraints.NONE;
+    gbc.anchor = GridBagConstraints.NORTH;
+    gbc.insets = new Insets(175,0,0,0);
+    AddConstraints(gbc,0,0,0.5,0,0);
+    mainPanel.add(intro2, gbc);
+
+    gbc.fill = GridBagConstraints.NONE;
+    gbc.anchor = GridBagConstraints.NORTH;
+    gbc.insets = new Insets(225,0,0,0);
+    AddConstraints(gbc,0,0,0.5,0,0);
+    mainPanel.add(okButton, gbc);
+
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.anchor = GridBagConstraints.NORTH;
+    gbc.insets = new Insets(0,0,0,0);
+    AddConstraints(gbc,0,1,0.5,0,0);
+    editPanel.add(GetMenu(), gbc);
+
+    gbc.fill = GridBagConstraints.NONE;
+    gbc.anchor = GridBagConstraints.PAGE_END;
+    gbc.insets = new Insets(0,0,10,100);
+    AddConstraints(gbc,0,0,0,0,1);
+    editPanel.add(backButton, gbc);
+
+    gbc.fill = GridBagConstraints.NONE;
+    gbc.anchor = GridBagConstraints.PAGE_END;
+    gbc.insets = new Insets(0,100,10,0);
+    AddConstraints(gbc,0,0,0,0,1);
+    editPanel.add(nextButton, gbc);
+
+    panels.add(mainPanel, "Panel 1");
+    panels.add(editPanel, "Panel 2");
+
+    CardLayout panel = (CardLayout) panels.getLayout();
+    panel.show(panels, "Panel 1");
+
+
+    okButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e1) {
+        panel.show(panels, "Panel 2");
+      }
+    });
+
+    backButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e1) {
+        panel.previous(panels);
+      }
+    });
+
+    return panels;
+  }
 
   // Creates a new object of JMenuBar and returns it.
   public JMenuBar GetMenu() {
     final JMenuBar menuBar = new JMenuBar();
-    // Textfield t = new Textfield();
 
     JMenu tab1 = new JMenu("File");
     JMenu tab2 = new JMenu("Edit");
@@ -38,20 +131,11 @@ public class Window {
     JMenuItem save = new JMenuItem("Save");
     JMenuItem exit1 = new JMenuItem("Exit");
 
-    JMenuItem t3_slot1 = new JMenuItem("Giovanna");
-    JMenuItem t3_slot2 = new JMenuItem("is");
-    JMenuItem t3_slot3 = new JMenuItem("a");
-    JMenuItem t3_slot4 = new JMenuItem("LOSER");
-
     JMenuItem info = new JMenuItem("Info");
 
     tab1.add(open);
     tab1.add(save);
     tab1.add(exit1);
-    tab3.add(t3_slot1);
-    tab3.add(t3_slot2);
-    tab3.add(t3_slot3);
-    tab3.add(t3_slot4);
     tab4.add(info);
 
     menuBar.add(tab1);
@@ -64,18 +148,19 @@ public class Window {
 
   // Opens a window application.
   public Window(int width, int height, String title) {
-    JFrame window = new JFrame(title);
+    JFrame MyWindow = new JFrame(title);
+    JPanel p = MakePanels();
 
     // Will automatically close the application upon exiting.
-    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    MyWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    window.setPreferredSize(new Dimension(width, height));
-    window.setMaximumSize(new Dimension(width, height));
-    window.setMinimumSize(new Dimension(width, height));
+    MyWindow.setPreferredSize(new Dimension(width, height));
 
-    window.setLocationRelativeTo(null); // Sets the location of the program to the middle of the screen
-    window.setLayout(null);
-    window.setJMenuBar(GetMenu());
-    window.setVisible(true);
+    MyWindow.pack(); // Sizes the frame
+    MyWindow.setLocationRelativeTo(null); // Sets the location of the program to the middle of the screen
+    //window.setJMenuBar(GetMenu()); // Sets the Menu Bar
+    MyWindow.add(p); // Adds panel(s)
+
+    MyWindow.setVisible(true);
   }
 }
