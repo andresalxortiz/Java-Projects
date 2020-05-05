@@ -4,7 +4,7 @@ Java
 **The purpose of this repository is to learn how to code in `Java`.**
 - The goal is not for the projects to get more difficult, but to get more ***creative***.
 
-- For a more in-depth tutorial go to this online tutorial written by ***Nam Ha Minh***:
+- This quick intro is a shortened version of an online tutorial written by ***Nam Ha Minh***:
 https://www.codejava.net/java-core/how-to-write-compile-and-run-a-hello-world-java-program-for-beginners
 
 ### How to start:
