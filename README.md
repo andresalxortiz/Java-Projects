@@ -4,6 +4,9 @@ Java
 **The purpose of this repository is to learn how to code in `Java`.**
 - The goal is not for the projects to get more difficult, but to get more ***creative***.
 
+- For a more in-depth tutorial go to this online tutorial written by ***Nam Ha Minh***:
+https://www.codejava.net/java-core/how-to-write-compile-and-run-a-hello-world-java-program-for-beginners
+
 ### How to start:
 <ins>For Windows users</ins>:
 1) Download Java SE Development Kit 14 or the latest release: https://www.oracle.com/java/technologies/javase-downloads.html
@@ -27,7 +30,5 @@ Java
 6) Congratulations your ran your first program.
 
 ### Sources:
-- For a more in-depth tutorial go to this online tutorial written by ***Nam Ha Minh***:
-https://www.codejava.net/java-core/how-to-write-compile-and-run-a-hello-world-java-program-for-beginners
 - For documentations or help troubleshooting:
 https://docs.oracle.com/en/java/javase/14/index.html
